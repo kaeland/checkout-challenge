@@ -1,11 +1,17 @@
 describe("Verify checkout process for Baby Chicks", () => {
   it("Completes a checkout process for Baby Chicks", () => {
     // Visit Samaritan's Purse website
-    cy.visit("https://www.samaritanspurse.org/our-ministry/gift-catalog/").then(
-      () => {
-        cy.url().should("include", "www.samaritanspurse.org");
-      }
-    );
+    // cy.visit("https://www.samaritanspurse.org/our-ministry/gift-catalog/").then(
+    //   () => {
+    //     cy.url().should("include", "www.samaritanspurse.org");
+    //   }
+    // );
+
+    cy.visit("https://www.samaritanspurse.org").then(() => {
+      cy.url().should("include", "www.samaritanspurse.org");
+    });
+
+    cy.get("a").contains("Shop the Catalog").click();
 
     // Verify search icon is visible on page
     cy.get("#searchIcon").should("be.visible");
