@@ -1,5 +1,5 @@
 describe("Verify checkout process for Baby Chicks", () => {
-  it("visits Samaritans Purse website", () => {
+  it("Completes a checkout process for Baby Chicks", () => {
     // Visit Samaritan's Purse website
     cy.visit("https://www.samaritanspurse.org/our-ministry/gift-catalog/").then(
       () => {
@@ -58,9 +58,6 @@ describe("Verify checkout process for Baby Chicks", () => {
 
     cy.get('button[data-process="emailMemorialCard"]').click();
 
-    // Verify only one item has been added to the users cart
-    // cy.get(".cart-count").should("be.visible").and("have.text", "1");
-
     // Click Checkout button
     cy.get("div#chkNow").should("be.visible");
     cy.get("div#chkNow").click();
@@ -111,58 +108,51 @@ describe("Verify checkout process for Baby Chicks", () => {
     // Ensure the billing section is visible
     cy.get("#billing").should("be.visible");
 
-    // RADIO BUTTON: Individual/Organization
-    // The code shows "Individual" is already selected. If needed to select "Organization":
-    // cy.get('[data-cy="radio-organization"]').click();
-    // If "Individual" is required, it's already selected by default.
-    // Just ensure it's visible:
+    // Ensure radio button is checked
     cy.get("#mat-radio-3-input").should("be.checked");
 
-    // TITLE (Select)
+    // Title (Select)
     cy.get('[data-cy="select-title"]').click();
     // Adjust this option text to what the dropdown actually contains (e.g., "Mr.", "Mrs.", etc.)
     cy.contains("mat-option", "Mr.").click();
 
-    // FIRST NAME
+    // First Name
     cy.get('[data-cy="input-first-name"]').type("John");
 
-    // MIDDLE NAME (Optional)
+    // Middle Name (Optional)
     cy.get('[data-cy="input-middle-name"]').type("M");
 
-    // LAST NAME
+    // Last Name
     cy.get('[data-cy="input-last-name"]').type("Doe");
 
-    // SUFFIX (Select)
+    // Suffix (Select)
     cy.get('[data-cy="select-suffix"]').click();
-    // Adjust the suffix option to match the actual dropdown options, for example "Jr."
     cy.contains("mat-option", "Jr.").click();
 
-    // ADDRESS LINE 1
-    // For Experian address autocomplete, just type the address. If it shows suggestions,
-    // you may need to select one. For now, just type a known address:
+    // Address Line 1
     cy.get("#mat-input-9").type("123 Main St");
 
-    // ADDRESS LINE 2
+    // Address Line 2
     cy.get('[data-cy="input-addressLine2"]').type("Apt 4B");
 
-    // CITY
+    // City
     cy.get('[data-cy="input-city"]').type("Testville");
 
-    // STATE (Select)
+    // State (Select)
     cy.get('[data-cy="select-state"]').click();
     // Select a state, for example: "Georgia"
     cy.contains("mat-option", "Georgia").click();
 
-    // ZIP
+    // Zip
     cy.get('[data-cy="input-postalCode"]').type("12345");
 
-    // PHONE
+    // Phone
     cy.get('[data-cy="input-phone"]').type("555-123-4567");
 
-    // EMAIL
+    // Email
     cy.get('[data-cy="input-email"]').type("john.doe@example.com");
 
-    // CONFIRM EMAIL
+    // Confirm Email
     cy.get('[data-cy="input-email-confirm"]').type("john.doe@example.com");
 
     // Ensure fields have expected values
