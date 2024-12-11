@@ -1,0 +1,12 @@
+{
+  "name": "Samaritans Purse Checkout Demo",
+  "description": "A demo of using CypressJS to purchase an item on Samaritanspurse.org",
+  "version": "1.0.0",
+  "author": "Kaeland Chatman <kaeland1@gmail.com>",
+  "license": "MIT",
+  "main": "app/main.js",
+  "scripts": {},
+  "devDependencies": {
+    "cypress": "^13.16.1"
+  }
+}
