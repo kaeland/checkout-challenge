@@ -1,4 +1,4 @@
-describe("Verify checkout process for Baby Chicks", () => {
+describe("Test the Gift Catalog process at Samaritan's Purse", () => {
   it("Completes a checkout process for Baby Chicks", () => {
     // Visit Samaritan's Purse website
     cy.visit("https://www.samaritanspurse.org").then(() => {
